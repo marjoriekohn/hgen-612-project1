@@ -19,23 +19,21 @@ mtcars_clean <- mtcars |>
   mutate(
     vs    = factor(vs, labels = c("V-shaped", "Straight")),
     am    = factor(am, labels = c("Automatic", "Manual")),
-    cyl   = factor(cyl),
-    gear  = factor(gear),
-    carb  = factor(carb)
+    cyl   = factor(cyl)
   )
 
 ################################################################################
 # Graph representing mpg vs wt, faceted by transmission type (am)
 ################################################################################
 mtcars_clean |>
-  ggplot(aes(wt, mpg)) +
+  ggplot(aes(wt, mpg, color=cyl)) +
   geom_point() +
-  geom_smooth() +
   facet_grid(~am) +
   labs(
     title = "Miles per gallon by vehicle weight",
     x = "Weight (1000 lbs)",
-    y = "Miles per Gallon"
+    y = "Miles per Gallon",
+    color = "Cylinders"
   ) +
   theme_linedraw(
     base_size = 14
