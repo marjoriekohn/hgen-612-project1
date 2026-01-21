@@ -23,7 +23,9 @@ mtcars |>
     x = "Weight (1000 lbs)",
     y = "Miles per Gallon"
   ) +
-  theme_classic()
+  theme_classic(
+    base_size = 14
+  )
 
 
 
