@@ -24,13 +24,16 @@ mtcars_clean <- mtcars |>
     carb  = factor(carb)
   )
 
-
+################################################################################
+# Graph representing mpg vs wt, faceted by transmission type (am)
+################################################################################
 mtcars_clean |>
   ggplot(aes(wt, mpg)) +
   geom_point() +
   geom_smooth() +
+  facet_grid(~am) +
   labs(
-    title = "Miles per gallon declines by vehicle weight",
+    title = "Miles per gallon by vehicle weight",
     x = "Weight (1000 lbs)",
     y = "Miles per Gallon"
   ) +
