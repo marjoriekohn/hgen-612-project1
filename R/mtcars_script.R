@@ -2,7 +2,7 @@
 # HGEN 612: Project 1
 # Author: Maggie Kohn
 # Date: January 21, 2026
-# Description: Generates a graphical representation of the mtcars dataset
+# Description: This script ...
 ################################################################################
 
 
@@ -11,30 +11,19 @@
 ################################################################################
 library(tidyverse)
 
-
 ################################################################################
-# Convert discrete variables to factors for better plotting
+# Instructions: generate a graphical representation for one of the variables
 ################################################################################
-mtcars_clean <- mtcars |>
-  mutate(
-    vs    = factor(vs, labels = c("V-shaped", "Straight")),
-    am    = factor(am, labels = c("Automatic", "Manual")),
-    cyl   = factor(cyl)
-  )
-
-################################################################################
-# Graph representing mpg vs wt, faceted by transmission type (am)
-################################################################################
-mtcars_clean |>
-  ggplot(aes(wt, mpg, color=cyl)) +
+mtcars |>
+  ggplot(aes(wt, mpg)) +
   geom_point() +
-  facet_grid(~am) +
+  geom_smooth() +
   labs(
-    title = "Miles per gallon by vehicle weight",
+    title = "Miles per Gallon vs. Weight of Vehicle",
     x = "Weight (1000 lbs)",
-    y = "Miles per Gallon",
-    color = "Cylinders"
+    y = "Miles per Gallon"
   ) +
-  theme_linedraw(
-    base_size = 14
-  )
+  theme_classic()
+
+
+
