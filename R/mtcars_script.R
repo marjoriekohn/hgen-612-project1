@@ -14,7 +14,16 @@ library(tidyverse)
 ################################################################################
 # Instructions: generate a graphical representation for one of the variables
 ################################################################################
-
+mtcars |>
+  ggplot(aes(wt, mpg)) +
+  geom_point() +
+  geom_smooth() +
+  labs(
+    title = "Miles per Gallon vs. Weight of Vehicle",
+    x = "Weight (1000 lbs)",
+    y = "Miles per Gallon"
+  ) +
+  theme_classic()
 
 
 
