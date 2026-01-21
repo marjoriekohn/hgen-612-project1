@@ -1,5 +1,11 @@
+# default .gitignore
 .Rproj.user
 .Rhistory
 .RData
 .Ruserdata
+
+# dont track anything that ends in .Rproj
 *.Rproj
+
+# dont track app data
+/app/data
